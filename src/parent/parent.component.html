@@ -1,5 +1,5 @@
 <div class="container mt-3">
-    <div class="card mb-3 w-75">
+    <div class="card mb-3">
         <div class="card-header">
             Parent
         </div>
@@ -10,12 +10,13 @@
                 <p>Last Name: {{ user.lastName }}</p>
 
                 <button class="btn btn-primary me-2" type="button" (click)="updateFirstName()">Update First
-                    Name</button>
-                <button class="btn btn-success" type="button" (click)="updateLastName()">Update Last Name</button>
+                    Name (will not update the child component)</button>
+                <button class="btn btn-success" type="button" (click)="updateLastName()">Update Last Name (will
+                    update the child component)</button>
             </div>
 
 
-            <div class="card w-50">
+            <div class="card">
                 <div class="card-header">Child</div>
                 <div class="card-body">
                     <app-child [user]="user" />
