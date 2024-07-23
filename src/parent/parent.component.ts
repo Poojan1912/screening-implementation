@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { ChildComponent } from "../child/child.component";
+import { User } from "../models/user.model";
 
 @Component({
     selector: 'app-parent',
@@ -8,7 +9,7 @@ import { ChildComponent } from "../child/child.component";
     imports: [ChildComponent]
 })
 export class ParentComponent {
-    user = {
+    user: User = {
         firstName: 'John',
         lastName: 'Doe'
     };
