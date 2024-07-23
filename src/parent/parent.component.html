@@ -44,4 +44,17 @@
         for
         Change.</p>
     <p>Eventually resulting in the change of user details.</p>
+
+    <h2>Explanation for the Hierarchical Dependency Injection</h2>
+    <ul>
+        <li>Hierarchical Dependency Injection allows us to manage instantiation, lifetime, and access of services to
+            different components.</li>
+        <li>In angular we can specify if a given service is available application-wide (root level), module-wide (module
+            level), or component level.</li>
+        <li>Here in the given demo example, We have one Logger service injected at the root level which is a singleton
+            service available application-wide.</li>
+        <li>In the parent component, we are overriding it with the Parent Logger service which is only available in the
+            parent component (which is injected at the component level instead of the root level).</li>
+        <li>There is also a Child Logger service injected in the child component.</li>
+    </ul>
 </div>
