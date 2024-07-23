@@ -1,11 +1,46 @@
-<h1>Parent</h1>
+<div class="container mt-3">
+    <div class="card mb-3 w-75">
+        <div class="card-header">
+            Parent
+        </div>
+        <div class="card-body">
+            <div class="mb-3">
+                <h2>User Details</h2>
+                <p>First Name: {{ user.firstName }}</p>
+                <p>Last Name: {{ user.lastName }}</p>
 
-<h2>User Details</h2>
-<p>First Name: {{ user.firstName }}</p>
-<p>Last Name: {{ user.lastName }}</p>
+                <button class="btn btn-primary me-2" type="button" (click)="updateFirstName()">Update First
+                    Name</button>
+                <button class="btn btn-success" type="button" (click)="updateLastName()">Update Last Name</button>
+            </div>
 
 
-<button type="button" (click)="updateFirstName()">Update First Name</button>
-<button type="button" (click)="updateLastName()">Update Last Name</button>
+            <div class="card w-50">
+                <div class="card-header">Child</div>
+                <div class="card-body">
+                    <app-child [user]="user" />
+                </div>
+            </div>
+        </div>
+    </div>
 
-<app-child [user]="user" />
+    <p>Here, our parent component is implementing Default (CheckAlways) Change Detection, while the child component is
+        implementing OnPush (CheckOnce) Change Detection.</p>
+    <p>In the Default Change Detection, when any change happens in the parent component, all the child components in the
+        tree of that parent will go through the Change Detection cycle.</p>
+    <p>But, with the OnPush Change Detection, the child is only checked once for the Change Detection on initialization
+        unless the component is explicitly marked as dirty.</p>
+
+    <h3>Updating the firstName</h3>
+
+    <p>So, when the firstName is changed, only the property of that property of that object is changed, but the object
+        reference remains the same. Eventually resulting in no Change Detection at the child level</p>
+
+    <h3>Updating the lastName</h3>
+
+    <p>When the lastName is changed, a new reference is given to the user object and without breaking the Object
+        Immutability restriction, the new reference is passed to the child component and the child component is checked
+        for
+        Change.</p>
+    <p>Eventually resulting in the change of user details.</p>
+</div>

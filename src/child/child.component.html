@@ -4,23 +4,4 @@
 <p>First Name: {{ user.firstName }}</p>
 <p>Last Name: {{ user.lastName }}</p>
 
-<button (click)="update()" type="button">Update Child</button>
-
-<p>Here, our parent component is implementing Default (CheckAlways) Change Detection, while the child component is
-    implementing OnPush (CheckOnce) Change Detection.</p>
-<p>In the Default Change Detection, when any change happens in the parent component, all the child components in the
-    tree of that parent will go through the Change Detection cycle.</p>
-<p>But, with the OnPush Change Detection, the child is only checked once for the Change Detection on initialization
-    unless the component is explicitly marked as dirty.</p>
-
-<h3>Updating the firstName</h3>
-
-<p>So, when the firstName is changed, only the property of that property of that object is changed, but the object
-    reference remains the same. Eventually resulting in no Change Detection at the child level</p>
-
-<h3>Updating the lastName</h3>
-
-<p>When the lastName is changed, a new reference is given to the user object and without breaking the Object
-    Immutability restriction, the new reference is passed to the child component and the child component is checked for
-    Change.</p>
-<p>Eventually resulting in the change of user details.</p>
+<button class="btn btn-primary" (click)="update()" type="button">Update Child</button>

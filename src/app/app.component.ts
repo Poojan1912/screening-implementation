@@ -1,10 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { LoggerService } from '../services/logger.service';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet],
-  template: `<router-outlet />`,
+  templateUrl: './app.component.html'
 })
-export class AppComponent { }
+export class AppComponent implements OnInit {
+  constructor(private loggerService: LoggerService) { }
+
+
+  ngOnInit() {
+    this.loggerService.log("application started!");
+  }
+}
